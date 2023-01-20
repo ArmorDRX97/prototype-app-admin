@@ -1,25 +1,88 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import {createRouter, createWebHistory} from 'vue-router';
+import HomeView from '../views/HomeView';
+import KindergartenRegister from '../views/KindergartenRegister';
+import Register from '../views/Register';
+import Login from '../views/Login';
+import Settings from '../views/Settings';
+import Teachers from '../views/Teachers';
+import Children from '../views/Children';
+import Groups from '../views/Groups';
+import Reports from '../views/Reports';
+import Daily from '../views/Daily';
+import Verification from '../views/Verification';
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+	{
+		path: '/',
+		name: 'home',
+		component: HomeView
+	},
+	{
+		path: '/kindergarten-register',
+		name: 'kindergarten',
+		component: KindergartenRegister
+	},
+	{
+		path: '/register',
+		name: 'register',
+		component: Register
+	},
+	{
+		path: '/login',
+		name: 'login',
+		component: Login
+	},
+	{
+		path: '/settings',
+		name: 'settings',
+		component: Settings
+	},
+	{
+		path: '/teachers',
+		name: 'teachers',
+		component: Teachers
+	},
+	{
+		path: '/children',
+		name: 'children',
+		component: Children
+	},
+	{
+		path: '/groups',
+		name: 'groups',
+		component: Groups
+	},
+	{
+		path: '/reports',
+		name: 'reports',
+		component: Reports
+	},
+	{
+		path: '/daily',
+		name: 'daily',
+		component: Daily
+	},
+	{
+		path: '/verification',
+		name: 'verification',
+		component: Verification
+	},
+];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+	history: createWebHistory(process.env.BASE_URL),
+	routes
+});
 
-export default router
+import store from '@/store/index';
+
+router.beforeEach((to, from, next) => {
+	const start = store.getters['getStart'];
+	if (to.name !== 'login' && start === false) {
+		next({name: 'login'});
+	} else {
+		next();
+	}
+});
+
+export default router;

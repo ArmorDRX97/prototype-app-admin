@@ -1,0 +1,319 @@
+.main-container{
+  margin-left: 300px;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.table-child-photo{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.btn-icon{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &.text-success{
+    &:hover{
+      background-color: rgba(25,135,84, 0.2);
+    }
+  }
+  &.text-danger{
+    &:hover{
+      background-color: rgba(220,53,69, 0.2);
+    }
+  }
+}
+
+.card-teacher{
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 4px 15px rgba(38, 7, 103, 0.25);
+  cursor: pointer;
+  transition: 0.15s all ease;
+  overflow: hidden;
+  small{
+    color: #999;
+  }
+  &:hover{
+    border: 2px solid #553bc2;
+  }
+  .card-image{
+    height: 200px;
+    overflow: hidden;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .card-body{
+    padding: 15px;
+    h5{
+      font-size: 20px;
+      min-height: 50px;
+    }
+    p, h5{
+      display: flex;
+      margin: 0 0 8px 0;
+      i{
+        margin-right: 10px;
+        font-size: 16px;
+        margin-top: 3px;
+        color: #553bc2;
+      }
+    }
+  }
+}
+
+.img-teacher-block{
+  height: 330px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.15s all ease;
+  }
+  input{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 330px;
+    z-index: 22;
+    cursor: pointer;
+  }
+  input:hover + .img-teacher-add{
+    border: 1px dashed #553bc2;
+    &:before{
+      color: #553bc2;
+    }
+  }
+  input:hover + img{
+    transform: scale(1.1);
+  }
+  .img-teacher-add{
+    position: relative;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px dashed #ddd;
+    cursor: pointer;
+    transition: 0.15s all ease;
+    &:before{
+      content: 'Добавить фото';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ddd;
+      transition: 0.15s all ease;
+    }
+  }
+}
+
+.card-groups{
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 4px 15px rgba(38, 7, 103, 0.25);
+  cursor: pointer;
+  transition: 0.15s all ease;
+  &:hover{
+    border: 2px solid #553bc2;
+    h5{
+      color: #553bc2;
+    }
+  }
+  i{
+    width: 25px;
+    height: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #553bc2;
+  }
+}
+
+.vue-notification {
+  margin: 0 20px 20px 0;
+  padding: 20px 30px;
+  font-size: 16px;
+  color: #ffffff;
+}
+.vue-notification-group{
+  z-index: 10500;
+}
+
+.w-18{
+  width: 18%;
+  margin-right: 1%;
+}
+
+.img-table{
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+  border-radius: 6px;
+  & + .full-image{
+    position: fixed;
+    bottom: -30px;
+    right: 0;
+    width: 700px;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    transition: 0.3s all ease;
+  }
+  &:hover + .full-image{
+    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+  img{
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+  }
+  &.change{
+    position: relative;
+    cursor: pointer;
+    &:hover{
+      &:before{
+        content: "\f303";
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-family: var(--fa-style-family,"Font Awesome 6 Free");
+        font-weight: var(--fa-style,900);
+        font-variant: normal;
+        line-height: 1;
+        text-rendering: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: #fff;
+        z-index: 2;
+        background-color: rgba(31,31,31,0.5);
+      }
+    }
+    input{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+      opacity: 0;
+      z-index: 4;
+    }
+  }
+}
+
+.add-form-children-page-image-block{
+  width: 100%;
+  overflow: hidden;
+  height: 92px;
+  border-radius: 10px;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  p{
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 92px;
+    border-radius: 10px;
+    border: 1px dashed #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.whitespace-nowrap{
+  white-space: nowrap;
+}
+
+.not-reg-kinder-notify{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #ee3018;
+  color: #ffffff;
+  font-size: 16px;
+  i{
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+}
+.info-block{
+  display: inline-flex;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(255,17,0,0.2);
+  border-radius: 10px;
+  i{
+    color: red;
+    font-size: 40px;
+    margin-right: 10px;
+  }
+}
+
+.table{
+  tr{
+    &.error{
+      th,td{
+        background-color: #ffcccf;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
